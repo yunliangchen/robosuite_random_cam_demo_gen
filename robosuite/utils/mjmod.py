@@ -56,6 +56,13 @@ class BaseModder:
             MjModel: Mujoco sim model
         """
         # Available for quick convenience access
+        try:
+            self.sim.model
+        except AttributeError:
+            print(type(self.sim))
+            from pprint import pprint
+            pprint(vars(self.sim))
+            breakpoint()
         return self.sim.model
 
 
